@@ -1,0 +1,222 @@
+.banner{
+    height:500px;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+    margin: 0 auto;
+}
+.companyBox{
+    margin: 0 auto;
+    background:rgba(255,255,255);
+}
+.ctrUl{
+    height:20px;
+    width:400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 10px;
+    margin-bottom: 20px;
+}
+.ctrUl>li{
+    word-wrap: none;
+    font-size: 14px;
+}
+.ctrShow{
+    color:red;
+}
+.map{
+    margin: 0 auto;
+    background: #ccaa11;
+}
+.map>div{
+    width:500px;
+    height:350px;
+    overflow: hidden;
+}
+.info1{
+    box-shadow:2px 2px rgb(105, 102, 102);
+    height:40px;
+}
+.info1>span{
+    display: block;
+    float: left;
+    margin-left: 20px;
+    line-height: 20px;
+}
+.nrBox{
+    margin: 0 auto;
+    position: relative;
+}
+.company-flexBox{
+    background: rgba(255,255,255);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.company-flexBox>p{
+    text-align: center;
+    line-height: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.nbox{
+    width:1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    min-height: 400px;
+    background: #fff;
+    padding-bottom:20px ;
+    display: none;
+    opacity: 0;
+    transition: all .5s;
+}
+.show{
+    display: block;
+    opacity: 1;
+}
+.h4{
+    margin-top: 20px;
+}
+.bb{
+    border-bottom: 1px solid #000;
+    padding-bottom: 20px;
+}
+.centerBox>li{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.nnbox{
+    width:1100px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.wz{
+    padding:2px 8px;
+    border: 2px solid rgba(244,225,179);
+    background: #fff;
+    color: rgba(244,225,179);
+    margin-left: 50px;
+}
+.jytd{
+    height:400px;
+    width:60%;
+    margin: 0 auto;
+    padding: 50px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.hide{
+    display: none;
+}
+.jrwm{
+    position: relative;
+}
+
+/* 应聘 */
+.apply-online-bg{
+    background: rgba(190, 177, 177, 0.4);
+    position: fixed;
+    left: 0;
+    top:0;
+    z-index: 5;
+    height:100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+.apply-online-box{
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width:30%;
+    height:50%;
+}
+.titlebar{
+    height:12%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #ccaa11;
+    padding:0 20px;
+    color:rgba(255,255,240);
+}
+.apply-info{
+    height:8%;
+}
+.bj{
+    width:90%;
+    margin: 0 auto;
+    margin-top: 3%;
+    height:8%
+}
+.jl{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.line{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.line>p{
+    margin-left: 1%;
+}
+.titlebar-sex{
+    height:12%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.titlebar-sex>input{
+    display: block;
+    height:100%;
+    width:10%;
+}
+.hide{
+    display: none;
+}
+.zs{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.rule-pic{
+    width:50%;
+    height:100%;
+    overflow: hidden;
+}
+.rule-text{
+    color:#000;
+    width:40%;
+}
+.pname{
+    font-size: 2.0rem;
+}
+.rule-text>span{
+    display: block;
+    margin: 5% 0;
+    color:rgb(199, 191, 191);
+}
+.rule-text>div{
+    width:80%;
+}
+.map{
+    width:100%;
+    height: 20%;
+    margin: 3% 0;
+}
+.map-pic{
+    width:100%;
+    height:100%;
+}

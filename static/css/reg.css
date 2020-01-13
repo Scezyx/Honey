@@ -1,0 +1,59 @@
+html{
+    background: rgb(242,242,242);
+}
+.title{
+    height:40px;
+    width:120px;
+    font-size: 30px;
+    margin: 30px auto 60px;
+}
+.table{
+    width:420px;
+    height:500px;
+    margin: 0 auto;
+    background: #fff;
+    position: relative;
+    margin-bottom: 30px;
+}
+.table>.tTitle{
+    position: absolute;
+    top:20px;
+    left:160px;
+    height:30px;
+    width:100px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 24px;
+}
+form{
+    height:210px;
+    width:360px;
+    position: absolute;
+    top:90px;
+    left:30px;
+}
+form input{
+    display: block;
+    height:30px;
+    margin-bottom: 20px;
+    width:320px;
+}
+form>a{
+    display: block;
+    margin: 0 0;
+    width:360px;
+    text-align: right;
+    margin-top: 8px;
+}
+form input::before{
+    background: url("images/suo.png");
+}
+.fbutton{
+    width:360px;
+    margin-top: 130px;
+    background: #3c73da;
+    height:40px;
+    border: none;
+    margin-bottom: 0;
+    color:#fff;
+}

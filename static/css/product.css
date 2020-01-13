@@ -1,0 +1,136 @@
+.ptbox {
+    background: rgb(242, 242, 242);
+    padding: 30px 0;
+}
+
+.pTitle {
+    width: 180px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 30px;
+}
+
+.searchBox {
+    padding: 20px 0 10px;
+    margin: 0 auto;
+}
+
+.biaoq {
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.show{
+    display: block;
+    opacity: 1;
+}
+.ctrShow{
+    color:rgba(233,192,122);
+}
+
+.search {
+    margin: 0 auto;
+    width: 500px;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    background: rgb(196, 218, 219);
+}
+
+.btnThree{
+    width: 250px;
+    margin: 0 auto;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+}
+.btnThree>.btnTile{
+    background: rgba(231,192,126);
+    border: none;
+    line-height: 30px;
+    width: 30px;
+    text-align: center;
+    margin: 0 5px;
+}
+.btnThree>input{
+    display: block;
+    height: 30px;
+    width: 60px;
+    border: none;
+    background: #fff;
+    color:rgb(242, 242, 242);;
+}
+.search>.input1 {
+    width: 440px;
+    border-radius: 20px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.search>input {
+    border: none;
+    background: rgb(196, 218, 219);
+}
+
+/* 商品 */
+.goodsBox {
+    padding: 50px 0 80px;
+    background: rgb(242,242,242);
+}
+.goodsBox>ul{
+    height:30px;
+    margin-bottom: 80px;
+    min-width: 1000px;
+    width: 1200px;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+.goodsBox>ul>li{
+    float: left;
+    width:65px;
+    overflow: hidden;
+    margin-left: 10px;
+}
+.goodsBox>ul>li:nth-last-child(1){
+    width:500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.goodsBox>ul>li:nth-last-child(1)>input{
+    display: block;
+    width:70px;
+}
+.goodsBox>ul>li>input{
+    height:26px;
+    display: block;
+    border: none;
+    width:50px;
+    margin-left: 20px;
+}
+.goods {
+    margin-top: 50px;
+    padding-top: 100px;
+    min-height: 350px;
+    margin: 0 auto;
+   
+}
+.line{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width:1200px;
+}
+.good{
+    margin-left: 50px;
+    background: #fff;
+    padding-bottom: 20px;
+    box-shadow: 2px 2px #a09a9a;
+    margin-bottom: 30px;
+}

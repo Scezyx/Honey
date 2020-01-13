@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>蜜醇主页</title>
+	<meta name="蜂蜜,蜜蜂" />
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/jquery-yys-slider.css">
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$(".login").click(function () {
+				window.location.href = "login";
+			})
+			$(".reg").click(function () {
+				window.location.href = "reg";
+			})
+			$("#mzjp").click(function () {
+				$.ajax({
+					type: 'post',
+					url: 'productyz',
+					data: {
+						flag: "c"
+					},
+					success: function (data) {
+
+					}
+				})
+			})
+			$(".good").click(function () {
+				$.ajax({
+					type: 'post',
+					url: 'productyz',
+					data: {
+						flag: 'zhfm'
+					},
+					success: function (data) {
+						console.log("succ");
+					}
+				})
+			})
+		})
+	</script>
+</head>
+
+<body>
+	<div id="head"></div>
+	<!-- 导航end -->
+
+	<!-- 大图 -->
+	<!-- <div class="banner">
+		<div class="ban">
+			<img src="../images/banner.jpg" class="banpic ctr1 swiper-slide" id="banpic1" alt="">
+			<img src="../images/banner.jpg" class="hidepic ctr2" id="banpic2" alt="">
+		</div>
+		<div class="bctrBox">
+			<div class="bctr">
+				<a class="ctrl" id="ctrl" href="#banpic1" onclick="xz();"></a>
+				<a class="ctrr" id="ctrr" href="#banpic2" onclick="xy();"></a>
+			</div>
+		</div>
+ -->
+
+	<!-- <div class="swiper-container">
+		<div class="swiper-wrapper">
+			<img src="./images/banner.jpg" alt="" class="swiper-slide">
+			<img src="./images/banner.jpg" alt="" class="swiper-slide">
+			<img src="./images/banner.jpg" alt="" class="swiper-slide">
+		</div>
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+		
+	</div> -->
+	<div id="carousel"></div>
+	<!-- 大图end -->
+
+	<!-- 产品展示 -->
+	<div class="twoBox waterfall ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+		<div class="pCtitle">
+			产品展示
+		</div>
+		<div class="pEtitle">
+			——product——
+		</div>
+		<div class="bq">
+			<div class="bqBox">
+				<a class="bqLeft" href="productxq?flag=mzjp">蜜中佳品</a>
+				<a class="bqRight" href="productxq?flag=hxsy">花香四溢</a>
+			</div>
+		</div>
+		<div class="goods">
+			{{each goods}}
+			<a href="productxq?id={{$value._id}}" class="good">
+				<img src="{{$value.pic}}" alt="{{$value.name}}">
+				<p class="gtitle">{{$value.name}}</p>
+
+				<span class="price" style="color:red">￥{{$value.price}}元</span>
+			</a>
+			{{/each}}
+		</div>
+		<div class="btnThree">
+			<input type="button" class="btnLeft" value="<" />
+			<div class="btnTile">more</div>
+			<input type="button" class="btnLeft" value=">" />
+		</div>
+	</div>
+	<!-- 产品展示end -->
+
+	<!-- 蜜淳蜂蜜 -->
+	<div class="mcfm waterfall ani">
+		<div class="pCtitle">
+			蜜淳蜂蜜
+		</div>
+		<div class="pEtitle">
+			——School——
+		</div>
+		<div class="bq">
+			<span>重于甘淳,忠于品质</span>
+		</div>
+	</div>
+	<!-- 蜜淳蜂蜜end -->
+
+	<!-- 关于我们 -->
+	<div class="aboutUs waterfall ani">
+		<div class="pic" style="margin-right: 50px;">
+			<img src="images/16.jpg" style="height:300px;width: 400px;" alt="">
+		</div>
+		<div class="neir" style="position: relative;">
+			<div class="nCTitle">关于我们</div>
+			<div class="nEtitle">——about Us——</div>
+			<div class="disc">
+				蜜淳把“聚集大自然的琼浆，为人类的健康着想”作为企业的使命，促进人类的健康，为人类造福，将
+				“重于甘淳,忠于品质”的核心价值观作为企业的持家之宝，兴企之本，立事之需。“团结的集体，严明的纪律，勤奋的劳动，
+				无私的奉献”是蜜淳公司的企业精神
+			</div>
+			<a href="javascript:void(0)" style="position: absolute;bottom:5px;left:0; padding: 8px 40px;border: 1px solid #000;margin-top: 80px;">MORE</a>
+		</div>
+		
+	</div>
+
+
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide person">
+				<div class="per1">
+					<div class="Ppic">
+						<img src={{person[0].pic}} class="per-pic" alt="">
+					</div>
+					<div class="pdisc">
+						<p class="name">
+							{{person[0].name}}
+						</p>
+						<div class="zy">
+							{{person[0].occupation}}
+						</div>
+						<div class="disc">
+							{{person[0].disc}}
+						</div>
+					</div>
+					<a href="#">more</a>
+				</div>
+
+
+				<div class="per1">
+					<div class="Ppic">
+						<img src={{person[1].pic}} class="per-pic" alt="">
+					</div>
+					<div class="pdisc">
+						<p class="name">
+							{{person[1].name}}
+						</p>
+						<div class="zy">
+							{{person[1].occupation}}
+						</div>
+						<div class="disc">
+							{{person[1].disc}}
+						</div>
+					</div>
+					<a href="#">more</a>
+				</div>
+
+
+
+				<div class="per1">
+					<div class="Ppic">
+						<img src={{person[2].pic}} class="per-pic" alt="">
+					</div>
+					<div class="pdisc">
+						<p class="name">
+							{{person[2].name}}
+						</p>
+						<div class="zy">
+							{{person[2].occupation}}
+						</div>
+						<div class="disc">
+							{{person[2].disc}}
+						</div>
+					</div>
+					<a href="#">more</a>
+				</div>
+				
+
+			</div>
+			<div class="swiper-slide person">
+				
+				
+				<div class="per1">
+					<div class="Ppic">
+						<img src={{person[3].pic}} class="per-pic" alt="">
+					</div>
+					<div class="pdisc">
+						<p class="name">
+							{{person[3].name}}
+						</p>
+						<div class="zy">
+							{{person[3].occupation}}
+						</div>
+						<div class="disc">
+							{{person[3].disc}}
+						</div>
+					</div>
+					<a href="#">more</a>
+				</div>
+				
+				<div class="per1">
+					<div class="Ppic">
+						<img src={{person[4].pic}} class="per-pic" alt="">
+					</div>
+					<div class="pdisc">
+						<p class="name">
+							{{person[4].name}}
+						</p>
+						<div class="zy">
+							{{person[4].occupation}}
+						</div>
+						<div class="disc">
+							{{person[4].disc}}
+						</div>
+					</div>
+					<a href="#">more</a>
+				</div>
+
+				<div class="per1">
+					<div class="Ppic">
+						<img src={{person[5].pic}} class="per-pic" alt="">
+					</div>
+					<div class="pdisc">
+						<p class="name">
+							{{person[5].name}}
+						</p>
+						<div class="zy">
+							{{person[5].occupation}}
+						</div>
+						<div class="disc">
+							{{person[5].disc}}
+						</div>
+					</div>
+					<a href="#">more</a>
+				</div>
+			<div class="ani"swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s"></div></div>
+			<div class="swiper-slide person">
+
+				<div class="per1">
+					<div class="Ppic">
+						<img src={{person[6].pic}} class="per-pic" alt="">
+					</div>
+					<div class="pdisc">
+						<p class="name">
+							{{person[6].name}}
+						</p>
+						<div class="zy">
+							{{person[6].occupation}}
+						</div>
+						<div class="disc">
+							{{person[6].disc}}
+						</div>
+					</div>
+					<a href="#">more</a>
+				</div>
+
+				<div class="per1">
+					<div class="Ppic">
+						<img src={{person[7].pic}} class="per-pic" alt="">
+					</div>
+					<div class="pdisc">
+						<p class="name">
+							{{person[7].name}}
+						</p>
+						<div class="zy">
+							{{person[7].occupation}}
+						</div>
+						<div class="disc">
+							{{person[7].disc}}
+						</div>
+					</div>
+					<a href="#">more</a>
+				</div>
+			</div>
+		</div>
+		<div class="swiper-pagination"></div>
+	</div>
+	<!-- 人物end -->
+
+	<!-- 新闻资讯 -->
+	<div class="newsBox waterfall">
+		<!-- 标题 -->
+		<div class="mcfm">
+			<div class="pCtitle">
+				新闻资讯
+			</div>
+			<div class="pEtitle">
+				——News——
+			</div>
+			<div class="bq">
+				<span>行业最新资讯</span>
+			</div>
+		</div>
+		<!-- 标题end -->
+
+		<!-- 新闻内容 -->
+		<div class="newR">
+			<!-- 第一行 -->
+			{{each news as value index}}
+			<div class="newsf1">
+				<div class="newsTime">{{value.time}}</div>
+				<a href="news?_id={{value._id}}" class="newsTitle">{{value.title}}</a>
+				<div class="line"></div>
+				<div class="newsDisc">{{value.disc}}</div>
+			</div>
+			{{/each}}
+		</div>
+		<!-- 第一行 end-->
+		<a class="nbtnTitle">more</a>
+	</div>
+	<!-- 第二行end -->
+
+	<!-- 新闻内容end -->
+	</div>
+	<!-- 新闻资讯end -->
+
+	<!-- 底部 -->
+	<div class="footer">
+		<div class="fbox">
+			<ul>
+				<li>
+					<a href="product">产品展示</a>
+					<ul>
+						<li><a href="product?flag=mzjp">蜜中佳品</a></li>
+						<li><a href="product?flag=hxsy">花香四溢</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="news">新闻资讯</a>
+					<ul>
+						<li><a href="news#yjzx">业界资讯</a></li>
+						<li><a href="news#gsdt">公司动态</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="company">公司概况</a>
+					<ul>
+						<li><a href="company#gsjj">公司简介</a></li>
+						<li><a href="company#jytd">精英团队</a></li>
+						<li><a href="company#jrwm">加入我们</a></li>
+					</ul>
+				</li>
+			</ul>
+			<div class="info">
+				<div class="iTitle">
+					重庆市蜜醇商贸有限公司
+				</div>
+				<p>重庆市蜜醇商贸有限公司</p>
+				<span>邮箱:2532487153qq.com</span>
+				<span>电话：17783444065 周一至周五：8：00~18：00</span>
+			</div>
+		</div>
+	</div>
+	<!-- 底部end -->
+	<script>
+		$("#head").load("component/head.html");//加载导航
+		$("#carousel").load("component/carousel.html");//加载轮播图
+		for (var i = 0; i < $(".newR").length; i++) {
+			$(".newR").children().removeClass("longLine");
+			$(".newR").children().mouseover(function () {
+				$(this).children(".line").addClass("longLine");
+				$(this).children(".longLine").removeClass("line");
+			})
+			$(".newR").children().mouseout(function () {
+				$(this).children(".longLine").addClass("line");
+				$(this).children(".line").removeClass("longLine");
+			})
+		}
+		var mySwiper = new Swiper('.swiper-container', {
+			autoplay: 5000, //可选选项，自动滑动
+			loop: true,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: "li",
+			},
+			prevButton: '.swiper-button-prev',
+			nextButton: '.swiper-button-next',
+			on: {
+				init: function () {
+					swiperAnimateCache(this); //隐藏动画元素 
+					swiperAnimate(this); //初始化完成开始动画
+				},
+				slideChangeTransitionEnd: function () {
+					swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+					//this.slides.eq(this.activeIndex).find('.ani').removeClass('ani'); 动画只展现一次，去除ani类名
+				}
+			}
+		})
+		// 如果需要前进后退按钮
+
+		//如果你初始化时没有定义Swiper实例，后面也可以通过Swiper的HTML元素来获取该实例
+		new Swiper('.swiper-container')
+		var mySwiper = document.querySelector('.swiper-container').swiper
+		mySwiper.slideNext();
+
+		for (i = 0; i < mySwiper.pagination.bullets.length; i++) {
+			mySwiper.pagination.bullets[i].onmouseover = function () {
+				this.click();
+			};
+		}
+
+
+		//如果你在swiper初始化后才决定使用clickable，可以这样设置
+		mySwiper.params.pagination.clickable = true;
+		//此外还需要重新初始化pagination
+		mySwiper.pagination.destroy()
+		mySwiper.pagination.init()
+		mySwiper.pagination.bullets.eq(0).addClass('swiper-pagination-bullet-active');
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,273 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>新闻资讯</title>
+    <meta name="新闻,快讯" />
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="css/news.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".login").click(function () {
+                window.location.href = "login";
+            })
+            $(".reg").click(function () {
+                window.location.href = "reg";
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <!-- 导航 -->
+    <div class="allNav">
+        <div class="nav">
+            <!-- 导航栏logo -->
+            <div class="nLeft">
+                <a href="index">
+                    <img src="../images/logo.jpg" alt="logo">
+                </a>
+            </div>
+            <!-- 导航栏logo end -->
+
+            <!-- 导航右边部分 -->
+            <div class="nRight">
+                <ul id="DH">
+                    <li>
+                        <a href="index">网站首页</a>
+                    </li>
+                    <li>
+                        <a href="product">产品展示</a>
+                        <ul>
+                            <li>
+                                <a href="productxq?flag=mzjp" id="mzjp">蜜中佳品</a>
+                            </li>
+                            <li>
+                                <a href="productxq?flag=hxsy">花香四溢</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="news">新闻资讯</a>
+                        <ul>
+                            <li>
+                                <a href="news?">
+                                    业界资讯
+                                </a>
+                            </li>
+                            <li>
+                                <a href="news?">
+                                    公司资讯
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="company">公司概况</a>
+                        <ul>
+                            <li>
+                                <a href="company?">公司简介</a>
+                            </li>
+                            <li>
+                                <a href="company?">精英团队</a>
+                            </li>
+                            <li>
+                                <a href="company?">加入我们</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="assist">蜜醇扶贫</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- 导航右边结束 -->
+
+            <!-- 登陆注册 -->
+            <div class="LR">
+                <input type="button" value="登陆" class="login">
+                <input type="button" value="注册" class="reg">
+            </div>
+            <!-- 登陆注册 -->
+        </div>
+    </div>
+    <!-- 导航end -->
+
+    <!-- 大图 -->
+    <div class="banner">
+        <img src="images/news_banner.jpg" class="banpic" alt="">
+    </div>
+    <!-- 大图end -->
+
+    <!-- news -->
+    <div class="newsBox">
+        <!-- 控制ul -->
+        <ul class="ctrUl" id="myTab">
+            <li id="all" ><a href="#all">全部</a></li>
+            <li id="yjzx"><a href="#yjzx">业界资讯</a></li>
+            <li id="gsdt"><a href="#gsdt">公司动态</a></li>
+        </ul>
+        <!-- 控制ul -->
+        <!-- new -->
+        <div class="box">
+            <div class="tabbox" id="myTabContent">
+                <ul id="allnew" class="all new show" >
+                    {{each news}}
+                    <li>
+                        <a href="newsxq?id={{$value._id}}">
+                            <div class="newPic">
+                                <div><img src={{$value._id}} alt={{$value.name}}></div>
+                            </div>
+
+                            <div class="newText">
+                                <h3 class="newsTitle">{{$value.title}}</h3>
+                                <div class="newsDisc">{{$value.disc}}</div>
+                                <span class="newsTime">{{$value.time}}</span>
+                                <span class="newsSee">{{$value.see}}</span>
+                            </div>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+
+                <!-- 业界资讯 -->
+                <ul id="allyjzx" class="yjzx hide">
+                    {{each yjzx}}
+                    <li>
+                        <a href="newsxq?id={{$value._id}}">
+                            <div class="newPic">
+                                <div><img src={{$value._id}} alt={{$value.name}}></div>
+                            </div>
+
+                            <div class="newText">
+                                <h3 class="newsTitle">{{$value.title}}asdasdsadasdadasdasdasdasdaaaaaaaaaaa</h3>
+                                <div class="newsDisc">{{$value.disc}}</div>
+                                <span class="newsTime">{{$value.time}}</span>
+                                <span class="newsSee">{{$value.see}}</span>
+                            </div>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+                <!-- 业界资讯end -->
+
+                <!-- 公司动态 -->
+                <ul id="allgsdt" class="gsdt hide">
+                        {{each yjzx}}
+                        <li>
+                            <a href="newsxq?id={{$value._id}}">
+                                <div class="newPic">
+                                    <div><img src={{$value._id}} alt={{$value.name}}></div>
+                                </div>
+    
+                                <div class="newText">
+                                    <h3 class="newsTitle">{{$value.title}}</h3>
+                                    <div class="newsDisc">{{$value.disc}}</div>
+                                    <span class="newsTime">{{$value.time}}</span>
+                                    <span class="newsSee">{{$value.see}}</span>
+                                </div>
+                            </a>
+                        </li>
+                        {{/each}}
+                </ul>
+                <!-- 公司动态end -->
+            </div>
+            <!-- new -->
+            <div class="searchBox">
+                <div class="search">
+                    <input type="text"><span></span>
+                </div>
+                <ul class="static">
+                    <li><a href="#">新闻资讯</a></li>
+                    <li><a href="#yjzx">业界资讯</a></li>
+                    <li><a href="#gxdt">公司动态</a></li>
+                </ul>
+                <!-- 为你推荐 -->
+                <div class="forYou">
+                    <div class="forYouTitle">
+                        为你推荐
+                    </div>
+                    {{each news}}
+                    <div class="forYouText">
+                        <a href="newsxq?id={{$value._id}}">{{$value.title}}</a>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- news -->
+
+    <!-- 底部 -->
+	<div class="footer">
+            <div class="fbox">
+                <ul>
+                    <li>
+                        <a href="product">产品展示</a>
+                        <ul>
+                            <li><a href="product?flag=mzjp">蜜中佳品</a></li>
+                            <li><a href="product?flag=hxsy">花香四溢</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="news">新闻资讯</a>
+                        <ul>
+                            <li><a href="news#yjzx">业界资讯</a></li>
+                            <li><a href="news#gsdt">公司动态</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="company">公司概况</a>
+                        <ul>
+                            <li><a href="company#gsjj">公司简介</a></li>
+                            <li><a href="company#jytd">精英团队</a></li>
+                            <li><a href="company#jrwm">加入我们</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="info">
+                    <div class="iTitle">
+                        重庆市蜜醇商贸有限公司
+                    </div>
+                    <p>重庆市蜜醇商贸有限公司</p>
+                    <span>邮箱:2532487153qq.com</span>
+                    <span>电话：17783444065 周一至周五：8：00~18：00</span>
+                </div>
+            </div>
+        </div>
+    <!-- 底部end -->
+    <script>
+        $(function () {
+            $(".ctrUl a").click(function () {
+                $(".ctrUl a").removeClass("ctrbg");
+                $(this).addClass("ctrbg");
+                let ID = this.href.split('#')[1];
+                console.log(ID);
+                $("."+ID).parents("#myTabContent").children().removeClass("show hide");
+                $("."+ID).parents("#myTabContent").children().addClass("hide");
+                $("."+ID).addClass("hide");
+                $("."+ID).addClass("show");
+            })
+        })
+
+        function getUrl() {
+            var url = location.href.split("#")[1];
+            return url;
+        }
+
+        function show() {
+            var id = getUrl();
+            if (id != null) {
+                $("#myTab a").removeClass("ctrshow show");
+                $("#" + id).addClass("ctrShow show");
+                $("#myTabContent").children().removeClass("show hide");
+                $("." + id).addClass("show");
+            }
+        }
+        show();
+    </script>
+</body>
+
+</html>

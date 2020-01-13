@@ -1,0 +1,209 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>产品展示</title>
+    <meta name="产品,蜂蜜" />
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="css/productxq.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".login").click(function () {
+                window.location.href = "login";
+            })
+            $(".reg").click(function () {
+                window.location.href = "reg";
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <!-- 导航 -->
+    <div class="allNav">
+        <div class="nav">
+            <!-- 导航栏logo -->
+            <div class="nLeft">
+                <a href="index">
+                    <img src="../images/logo.jpg" alt="logo">
+                </a>
+            </div>
+            <!-- 导航栏logo end -->
+
+            <!-- 导航右边部分 -->
+            <div class="nRight">
+                <ul id="DH">
+                    <li>
+                        <a href="index">网站首页</a>
+                    </li>
+                    <li>
+                        <a href="product">产品展示</a>
+                        <ul>
+                            <li>
+                                <a href="productxq?flag=mzjp" id="mzjp">蜜中佳品</a>
+                            </li>
+                            <li>
+                                <a href="productxq?flag=hxsy">花香四溢</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="news">新闻资讯</a>
+                        <ul>
+                            <li>
+                                <a href="news?">
+                                    业界资讯
+                                </a>
+                            </li>
+                            <li>
+                                <a href="news?">
+                                    公司资讯
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="company">公司概况</a>
+                        <ul>
+                            <li>
+                                <a href="company?">公司简介</a>
+                            </li>
+                            <li>
+                                <a href="company?">精英团队</a>
+                            </li>
+                            <li>
+                                <a href="company?">加入我们</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="assist">蜜醇扶贫</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- 导航右边结束 -->
+
+            <!-- 登陆注册 -->
+            <div class="LR">
+                <input type="button" value="登陆" class="login">
+                <input type="button" value="注册" class="reg">
+            </div>
+            <!-- 登陆注册 -->
+        </div>
+    </div>
+    <!-- 导航end -->
+
+    <div class="ptbox">
+        <div class="box">
+            <div class="pTitle">产品展示</div>
+            <div class="lj">
+                <a href="index">网站首页/</a>
+                <a href="product">产品展示/</a>
+                <a href="productxq?id={{goods._id}}">{{goods.name}}</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 产品 -->
+    <div class="pxbox">
+        <div class="pbox">
+            <div class="pic">
+                <img src={{goods.pic}} alt="">
+            </div>
+            <div class="productinfo">
+                <p>{{goods.name}}</p>
+                <span>{{goods.disc}}</span>
+                <div class="price">￥{{goods.price}}</div>
+                <div class="jj">
+                    <span>数量</span>
+                    <div class="btn">
+                        <input type="button" value="-" />
+                        <input type="text" value="0" />
+                        <input type="button" value="+" />
+                    </div>
+                </div>
+                <div class="fc">
+                    <a href="">加入购物车</a>
+                    <a href="">加入收藏</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 产品end -->
+
+    <!-- 为你推荐and产品详情 -->
+    <div class="proBox">
+        <div class="centerBox">
+            <!-- 为你推荐 -->
+            <div class="tj">
+                
+                <!-- 标题 -->
+                <p>为你推荐</p>
+                <!-- 标题 -->
+                {{each }}
+                <div>
+                    <img src="{{}}" alt="{{}}">
+                </div>
+                {{/each}}
+            </div>
+            <!-- 为你推荐 -->
+
+            <!-- 商品描述 -->
+            <div class="disc">
+                <div class="dTitle">
+                    <div class="dTText">
+                        详细信息
+                    </div>
+                </div>
+                <div class="dText">
+                    {{goods.disc}}
+                </div>
+            </div>
+            <!-- 商品描述 -->
+        </div>
+        <!-- 为你推荐and产品详情 -->
+    </div>
+    
+    <!-- 底部 -->
+	<div class="footer">
+            <div class="fbox">
+                <ul>
+                    <li>
+                        <a href="product">产品展示</a>
+                        <ul>
+                            <li><a href="product?flag=mzjp">蜜中佳品</a></li>
+                            <li><a href="product?flag=hxsy">花香四溢</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="news">新闻资讯</a>
+                        <ul>
+                            <li><a href="news#yjzx">业界资讯</a></li>
+                            <li><a href="news#gsdt">公司动态</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="company">公司概况</a>
+                        <ul>
+                            <li><a href="company#gsjj">公司简介</a></li>
+                            <li><a href="company#jytd">精英团队</a></li>
+                            <li><a href="company#jrwm">加入我们</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="info">
+                    <div class="iTitle">
+                        重庆市蜜醇商贸有限公司
+                    </div>
+                    <p>重庆市蜜醇商贸有限公司</p>
+                    <span>邮箱:2532487153qq.com</span>
+                    <span>电话：17783444065 周一至周五：8：00~18：00</span>
+                </div>
+            </div>
+        </div>
+        <!-- 底部end -->
+</body>
+
+</html>

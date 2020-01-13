@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>轮播图</title>
+    <meta name="轮播图,图,轮播" />
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="css/jquery-yys-slider.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <img src="./images/banner.png" alt="" class="swiper-slide">
+            <img src="./images/banner.png" alt="" class="swiper-slide">
+            <img src="./images/banner.png" alt="" class="swiper-slide">
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+    </div>
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+			autoplay: 5000,//可选选项，自动滑动
+			loop:true,
+			pagination :{
+				el: '.swiper-pagination',
+				clickable :"li",
+			},
+			prevButton:'.swiper-button-prev',
+			nextButton:'.swiper-button-next'
+		})
+	// 如果需要前进后退按钮
+		
+		//如果你初始化时没有定义Swiper实例，后面也可以通过Swiper的HTML元素来获取该实例
+		new Swiper('.swiper-container')
+		var mySwiper = document.querySelector('.swiper-container').swiper
+		mySwiper.slideNext();
+
+		for(i=0;i<mySwiper.pagination.bullets.length;i++){
+			mySwiper.pagination.bullets[i].onmouseover=function(){
+				this.click();
+			};
+		} 
+
+
+		//如果你在swiper初始化后才决定使用clickable，可以这样设置
+		mySwiper.params.pagination.clickable = true ;
+		//此外还需要重新初始化pagination
+		mySwiper.pagination.destroy()
+		mySwiper.pagination.init()
+		mySwiper.pagination.bullets.eq(0).addClass('swiper-pagination-bullet-active');
+    </script>
+</body>

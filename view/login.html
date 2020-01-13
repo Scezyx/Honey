@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>会员登陆</title>
+    <meta name="蜂蜜,蜜蜂" />
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".login").click(function () {
+                window.location.href = "login";
+            })
+            $(".reg").click(function () {
+                window.location.href = "reg";
+            })
+            $("#Login").click(function () {
+                $.ajax({
+                    url: '/doLogin',
+                    type: 'post',
+                    data: {
+                        no: $("#no").attr("value"),
+                        pas: $("#pas").attr("value")
+                    },
+                    success: function (data) {
+                        console.log('success');
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <!-- 导航 -->
+    <div class="allNav">
+        <div class="nav">
+            <!-- 导航栏logo -->
+            <div class="nLeft">
+                <a href="index">
+                    <img src="../images/logo.jpg" alt="logo">
+                </a>
+            </div>
+            <!-- 导航栏logo end -->
+
+            <!-- 导航右边部分 -->
+            <div class="nRight">
+                <ul id="DH">
+                    <li>
+                        <a href="index">网站首页</a>
+                    </li>
+                    <li>
+                        <a href="product">产品展示</a>
+                        <ul>
+                            <li>
+                                <a href="productxq?flag=mzjp" id="mzjp">蜜中佳品</a>
+                            </li>
+                            <li>
+                                <a href="productxq?flag=hxsy">花香四溢</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="news">新闻资讯</a>
+                        <ul>
+                            <li>
+                                <a href="news?">
+                                    业界资讯
+                                </a>
+                            </li>
+                            <li>
+                                <a href="news?">
+                                    公司资讯
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="company">公司概况</a>
+                        <ul>
+                            <li>
+                                <a href="company?">公司简介</a>
+                            </li>
+                            <li>
+                                <a href="company?">精英团队</a>
+                            </li>
+                            <li>
+                                <a href="company?">加入我们</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="assist">蜜醇扶贫</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- 导航右边结束 -->
+
+            <!-- 登陆注册 -->
+            <div class="LR">
+                <input type="button" value="登陆" class="login">
+                <input type="button" value="注册" class="reg">
+            </div>
+            <!-- 登陆注册 -->
+        </div>
+    </div>
+    <!-- 导航end -->
+
+    <!-- 内容 -->
+    <!-- 标题 -->
+    <div class="title">
+        会员中心
+    </div>
+    <!-- 标题end -->
+    <!-- 大图和表单 -->
+    <div class="banner" style="background: url(images/login_banner.jpg);height:400px">
+        <form action="/doLogin" method="POST" style="opacity: 0.8;background: rgba(211,213,223);">
+            <div class="sr">
+                <input type="text" placeholder="用户名/邮箱/手机" value="SCE林木夕" id="no" name="no">
+                <input type="password" placeholder="密码" value="zyx147258369." id="pas" name="pas">
+            </div>
+            <a href="">忘记密码</a>
+            <div class="btn">
+                <input type="submit" value="登陆" id="Login" style="border:none;background: rgba(90,166,237);color:#fff">
+                <input type="button" value="没有账号？现在去注册"  style="border:none;background: rgba(90,166,237);color:#fff">
+            </div>
+        </form>
+        <!-- 大图和表单end -->
+    </div>
+    <!-- 内容end -->
+
+    <!-- 底部 -->
+    <div class="footer">
+        <div class="fbox">
+            <ul>
+                <li>
+                    <a href="product">产品展示</a>
+                    <ul>
+                        <li><a href="product?flag=mzjp">蜜中佳品</a></li>
+                        <li><a href="product?flag=hxsy">花香四溢</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="news">新闻资讯</a>
+                    <ul>
+                        <li><a href="news#yjzx">业界资讯</a></li>
+                        <li><a href="news#gsdt">公司动态</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="company">公司概况</a>
+                    <ul>
+                        <li><a href="company#gsjj">公司简介</a></li>
+                        <li><a href="company#jytd">精英团队</a></li>
+                        <li><a href="company#jrwm">加入我们</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="info">
+                <div class="iTitle">
+                    重庆市蜜醇商贸有限公司
+                </div>
+                <p>重庆市蜜醇商贸有限公司</p>
+                <span>邮箱:2532487153qq.com</span>
+                <span>电话：17783444065 周一至周五：8：00~18：00</span>
+            </div>
+        </div>
+    </div>
+    <!-- 底部end -->
+</body>
+
+</html>

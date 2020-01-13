@@ -1,0 +1,110 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>产品展示,产品详情</title>
+    <meta name="产品,蜂蜜" />
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/news.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+    <script src="js/swiper.animate.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".login").click(function () {
+                window.location.href = "login";
+            })
+            $(".reg").click(function () {
+                window.location.href = "reg";
+            })
+        })
+    </script>
+</head>
+
+<body style="background: rgba(242,242,242);">
+    <!-- 导航 -->
+    <div id="head"></div>
+    <!-- 导航 -->
+
+    <!-- 轮播 -->
+    <div id="carousel" style="height:80%;width:100%; overflow:hidden;"></div>
+    <!-- 轮播end -->
+
+    <div class="newsbox" style="padding-top:30px;overflow: hidden;width:730px;">
+        <ul id="allnew"  class="all new show" style="display: flex;flex-direction: row; justify-content: flex-start; ">
+            {{each news}}
+            <li>
+                <a href="newsxq?id={{$value._id}}">
+                    <div class="newPic">
+                        <div><img src={{$value._id}} alt={{$value.name}}></div>
+                    </div>
+
+                    <div class="newText">
+                        <h3 class="newsTitle">{{$value.title}}</h3>
+                        <div class="newsDisc">{{$value.disc}}</div>
+                        <span class="newsTime">{{$value.time}}</span>
+                        <span class="newsSee">{{$value.see}}</span>
+                    </div>
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+        <div class="btnThree" id="btn">
+            <input type="button" class="btnLeft" value="上一页" />
+            {{each news as value index}}
+            <button class="btnTile btnn">{{index}}</button>
+            {{/each}}
+            <input type="button" class="btnLeft" value="下一页" />
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div id="footer"></div>
+    <!-- 底部end -->
+    <script>
+        $("#head").load("component/head.html");
+        $("#carousel").load("component/carousel.html")
+        $("#footer").load("component/footer.html")
+
+        $("#btn .btnn").click(function(){
+            let num=this.attr("value");
+            $("#allnew").attr("")
+        })
+
+
+        var mySwiper = new Swiper('.swiper-container', {
+            autoplay: 5000, //可选选项，自动滑动
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: "li",
+            },
+            prevButton: '.swiper-button-prev',
+            nextButton: '.swiper-button-next'
+        })
+        // 如果需要前进后退按钮
+
+        //如果你初始化时没有定义Swiper实例，后面也可以通过Swiper的HTML元素来获取该实例
+        new Swiper('.swiper-container')
+        var mySwiper = document.querySelector('.swiper-container').swiper
+        mySwiper.slideNext();
+
+        for (i = 0; i < mySwiper.pagination.bullets.length; i++) {
+            mySwiper.pagination.bullets[i].onmouseover = function () {
+                this.click();
+            };
+        }
+
+
+        //如果你在swiper初始化后才决定使用clickable，可以这样设置
+        mySwiper.params.pagination.clickable = true;
+        //此外还需要重新初始化pagination
+        mySwiper.pagination.destroy()
+        mySwiper.pagination.init()
+        mySwiper.pagination.bullets.eq(0).addClass('swiper-pagination-bullet-active');
+    </script>
+</body>
+
+</html>

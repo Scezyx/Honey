@@ -1,0 +1,381 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>公司概况</title>
+    <meta name="公司,关于我们" />
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="css/jquery-yys-slider.css">
+    <link rel="stylesheet" href="css/company.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+    <script src="https://unpkg.com/vue"></script>
+    <!--调试版-->
+    <script src="https://unpkg.com/@jiaminghi/data-view/dist/datav.map.vue.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".login").click(function () {
+                window.location.href = "login";
+            })
+            $(".reg").click(function () {
+                window.location.href = "reg";
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <!-- 导航 -->
+    <div class="allNav">
+        <div class="nav">
+            <!-- 导航栏logo -->
+            <div class="nLeft">
+                <a href="index">
+                    <img src="../images/logo.jpg" alt="logo">
+                </a>
+            </div>
+            <!-- 导航栏logo end -->
+
+            <!-- 导航右边部分 -->
+            <div class="nRight">
+                <ul id="DH">
+                    <li>
+                        <a href="index">网站首页</a>
+                    </li>
+                    <li>
+                        <a href="product">产品展示</a>
+                        <ul>
+                            <li>
+                                <a href="productxq?flag=mzjp" id="mzjp">蜜中佳品</a>
+                            </li>
+                            <li>
+                                <a href="productxq?flag=hxsy">花香四溢</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="news">新闻资讯</a>
+                        <ul>
+                            <li>
+                                <a href="news?">
+                                    业界资讯
+                                </a>
+                            </li>
+                            <li>
+                                <a href="news?">
+                                    公司资讯
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="company">公司概况</a>
+                        <ul>
+                            <li>
+                                <a href="company?">公司简介</a>
+                            </li>
+                            <li>
+                                <a href="company?">精英团队</a>
+                            </li>
+                            <li>
+                                <a href="#">加入我们</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="assist">蜜醇扶贫</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- 导航右边结束 -->
+
+            <!-- 登陆注册 -->
+            <div class="LR">
+                <input type="button" value="登陆" class="login">
+                <input type="button" value="注册" class="reg">
+            </div>
+            <!-- 登陆注册 -->
+        </div>
+    </div>
+    <!-- 导航end -->
+
+    <!-- 大图 -->
+    <div class="banner" style="hieght:200px;width:100%; overflow: hidden;">
+        <img src="images/com_banner.jpg" style="hieght:200px;width:100%;overflow: hidden;" alt="">
+    </div>
+    <!-- 大图end -->
+
+    <!-- news -->
+    <div class="companyBox">
+        <!-- 控制ul -->
+        <ul id="myTab" class="ctrUl nav nav-pills">
+            <li class="ctrShow" id="gsjj"><a href="#bulletin">公司简介</a></li>
+            <li id="jytd"><a href="#rule">精英团队</a></li>
+            <li id="jrwm"><a href="#forum">加入我们</a></li>
+        </ul>
+        <!-- 控制ul -->
+
+
+        <!-- new -->
+        <!-- 选项卡菜单-->
+
+        <!-- 选项卡面板 -->
+        <div id="myTabContent" class="nrBox">
+            <div class="nbox show gsjj" id="bulletin">
+                <div class="map">
+                    <img src="images/map.jpg" class="map-pic" alt="">
+                </div>
+                <div class="company-flexBox">
+
+                    
+                    <!-- 图片 -->
+                    <div class="pic">
+                        <img src="images/company.jpg" alt="">
+                    </div>
+                    <!-- 图片 -->
+                    <p>蜜淳创办于2015年，是集包装与销售一体的原生态蜂蜜农产品销售公司</p>
+
+                    <div class="pic">
+                        <img src="images/company1.jpg" alt="">
+                    </div>
+                    <p>发展历程</p>
+
+                    <div>
+                        <img src="images/company2.jpg" alt="">
+                    </div>
+                    <p>品牌文化</p>
+                </div>
+            </div>
+            <div class="nbox jytd hide" id="rule">
+                <div class="swiper-container" style="width: 100%;">
+                    <div class="swiper-wrapper" style="width:100%">
+                        {{each per}}
+                        <div class="swiper-slide zs" style="width:100%;">
+                            <img src={{$value.pic}} class="rule-pic" alt="">
+                            <div class="rule-text">
+                                <!-- 名字 -->
+                                <p class="pname">
+                                    {{$value.name}}
+                                </p>
+                                <!-- 名字 -->
+
+                                <!-- 来自哪儿 -->
+                                <span>{{$value.occupation}}</span>
+                                <!-- 来自哪儿 -->
+
+                                <!-- 描述 -->
+                                <div>{{$value.disc}}</div>
+                                <!-- 描述 -->
+
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div class="nbox jrwm" id="forum">
+                <div class="map">
+                    <img src="images/map.jpg" class="map-pic" alt="">
+                </div>
+                {{each team}}
+                <div class="nnbox">
+                    <h1>蜜蜂培训师</h1>
+                    <div class="info1 bb">
+                        <!-- 时间 -->
+                        <span>{{$value.time}}</span>
+                        <!-- 时间 -->
+                        <!-- 地点 -->
+                        <span>{{$value.address}}</span>
+                        <!-- 地点 -->
+
+                        <!-- 人数 -->
+                        <span>{{$value.person}}</span>
+                        <!-- 人数 -->
+
+                        <!-- 薪资 -->
+                        <span>{{$value.money}}</span>
+                        <!-- 薪资 -->
+                    </div>
+                    <!-- 岗位职责 -->
+                    <h4>岗位职责</h4>
+                    <ul class="centerBox">
+                        {{each $value.duty as value index}}
+                        <li>
+                            {{index+1}}、 {{value}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                    <!-- 岗位职责 -->
+                    <h4>职位要求</h4>
+                    <!-- 任职要求 -->
+                    <ul class="centerBox bb">
+                        {{each $value.req as value index}}
+                        <li>{{index+1}}、 {{value}}</li>
+                        {{/each}}
+                    </ul>
+                    <!-- 任职要求 -->
+                </div>
+                {{/each}}
+                <input type="button" value="在线应聘" class="wz" id="apply-online">
+
+
+            </div>
+        </div>
+    </div>
+    <!-- 应聘 -->
+    <div id="apply-online-bg" class="apply-online-bg hide">
+        <div class="apply-online-box">
+            <div class="titlebar">
+                <div class="titlebar-title">在线应聘</div>
+                <a class="fork" id="fork" href="javascript:void(0)"><img src="images/fork.png" alt="叉图标"></a>
+            </div>
+
+            <!-- 姓名 -->
+            <input type="text" placeholder="姓名" class="apply-info bj">
+            <!-- 姓名end -->
+
+            <!-- 性别 -->
+            <div class="titlebar-sex bj">
+                <div class="line"><input type="radio" value="男士"/><p>男士</p></div>
+                <div class="line"><input type="radio" value="女士"/><p>女士</p></div>
+            </div>
+            <!-- 性别end -->
+
+            <!-- 联系方式 -->
+            <input type="text" placeholder="联系方式" class="apply-info bj">
+            <!-- 联系方式end -->
+
+            <!-- 邮箱 -->
+            <input type="text" placeholder="邮箱" class="apply-info bj">
+            <!-- 邮箱end -->
+
+            <!-- 简历 -->
+            <div class="bj">
+                <input type="file" name="" placeholder="简历" id="" class="apply-info" style="display: block;
+                height:30px;width:10%;background: url(images/upload.png) no-repeat;
+                ">
+            </div>
+            
+            <!-- 简历end -->
+
+            <!-- 按钮 -->
+            <div>
+                <input type="button" value="确定">
+                <input type="button" vlaue="取消">
+            </div>
+            <!-- 按钮end -->
+        </div>
+    </div>
+    <!-- 应聘end -->
+    <!-- news -->
+
+    <!-- 底部 -->
+    <div class="footer">
+        <div class="fbox">
+            <ul>
+                <li>
+                    <a href="product">产品展示</a>
+                    <ul>
+                        <li><a href="productyz?flag=mzjp">蜜中佳品</a></li>
+                        <li><a href="productyz?flag=hxsy">花香四溢</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="news">新闻资讯</a>
+                    <ul>
+                        <li><a href="news#yjzx">业界资讯</a></li>
+                        <li><a href="news#gsdt">公司动态</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="company">公司概况</a>
+                    <ul>
+                        <li><a href="company#gsjj">公司简介</a></li>
+                        <li><a href="company#jytd">精英团队</a></li>
+                        <li><a href="company#jrwm">加入我们</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="info" style="border:0;border-color: black;">
+                <p class="iTitle">
+                    重庆市蜜醇商贸有限公司
+                </p>
+                <p>重庆市蜜醇商贸有限公司</p>
+                <span>邮箱:2532487153qq.com</span>
+                <span>电话：17783444065 周一至周五：8：00~18：00</span>
+            </div>
+        </div>
+    </div>
+    <!-- 底部end -->
+    <script>
+        $("#apply-online").click(function () {
+            $("#apply-online-bg").removeClass("hide");
+        })
+        $("#fork").click(function () {
+            $("#apply-online-bg").addClass("hide");
+        })
+        $(function () {
+            $("#myTab a").click(function () {
+                $("#myTab a").removeClass("ctrShow");
+                $(this).addClass("ctrShow");
+                let ID = this.href.split("#")[1];
+                if (ID != "rule" || ID == "" || ID == null) {
+                    $("#rule").addClass("hide");
+                } else {
+                    $("#rule").removeClass("hide");
+                }
+                $("#" + ID).parents().children().removeClass("show ctrShow");
+                $("#" + ID).addClass("show");
+            })
+        })
+
+        function getUrl() {
+            var url = location.href.split("#")[1];
+            return url;
+        }
+
+        function show() {
+            var id = getUrl();
+            if (id != null) {
+                $("#myTab a").removeClass("ctrshow");
+                $("#" + id).addClass("ctrShow");
+                $("#myTabContent").children().removeClass("show");
+                $("." + id).addClass("show");
+            }
+        }
+        show();
+
+        var mySwiper = new Swiper('.swiper-container', {
+            autoplay: false, //可选选项，自动滑动
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            }
+        })
+
+        //鼠标滑过pagination控制swiper切换
+        for (i = 0; i < mySwiper.pagination.bullets.length; i++) {
+            mySwiper.pagination.bullets[i].onmouseover = function () {
+                this.click();
+            };
+        }
+
+
+        //如果你在swiper初始化后才决定使用clickable，可以这样设置
+        mySwiper.params.pagination.clickable = true;
+        //此外还需要重新初始化pagination
+        mySwiper.pagination.destroy()
+        mySwiper.pagination.init()
+        mySwiper.pagination.bullets.eq(0).addClass('swiper-pagination-bullet-active');
+
+        //如果你初始化时没有定义Swiper实例，后面也可以通过Swiper的HTML元素来获取该实例
+        new Swiper('.swiper-container')
+        var mySwiper = document.querySelector('.swiper-container').swiper
+        mySwiper.slideNext();
+    </script>
+</body>
+
+</html>

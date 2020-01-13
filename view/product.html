@@ -1,0 +1,252 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>产品展示</title>
+    <meta name="产品,蜂蜜" />
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="css/easyui.css">
+    <link rel="stylesheet" href="css/product.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery.easyui.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".login").click(function () {
+                window.location.href = "login";
+            })
+            $(".reg").click(function () {
+                window.location.href = "reg";
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <!-- 导航 -->
+    <div class="allNav">
+        <div class="nav">
+            <!-- 导航栏logo -->
+            <div class="nLeft">
+                <a href="index">
+                    <img src="../images/logo.jpg" alt="logo">
+                </a>
+            </div>
+            <!-- 导航栏logo end -->
+
+            <!-- 导航右边部分 -->
+            <div class="nRight">
+                <ul id="DH">
+                    <li>
+                        <a href="index">网站首页</a>
+                    </li>
+                    <li>
+                        <a href="product">产品展示</a>
+                        <ul>
+                            <li>
+                                <a href="productxq?flag=mzjp" id="mzjp">蜜中佳品</a>
+                            </li>
+                            <li>
+                                <a href="productxq?flag=hxsy">花香四溢</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="news">新闻资讯</a>
+                        <ul>
+                            <li>
+                                <a href="news?">
+                                    业界资讯
+                                </a>
+                            </li>
+                            <li>
+                                <a href="news?">
+                                    公司资讯
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="company">公司概况</a>
+                        <ul>
+                            <li>
+                                <a href="company?">公司简介</a>
+                            </li>
+                            <li>
+                                <a href="company?">精英团队</a>
+                            </li>
+                            <li>
+                                <a href="company?">加入我们</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="assist">蜜醇扶贫</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- 导航右边结束 -->
+
+            <!-- 登陆注册 -->
+            <div class="LR">
+                <input type="button" value="登陆" class="login">
+                <input type="button" value="注册" class="reg">
+            </div>
+            <!-- 登陆注册 -->
+        </div>
+    </div>
+    <!-- 导航end -->
+
+    <!-- 产品banner -->
+    <div class="ptbox">
+        <div class="pTitle">产品展示</div>
+    </div>
+
+    <!-- 搜索栏 -->
+    <div class="searchBox">
+        <div class="biaoq" id="myTab">
+            <a href="javascript:void(0);">全部</a>
+            <a href="javascript:void(0);">蜜中佳品</a>
+            <a href="javascript:void(0);">花香四溢</a>
+        </div>
+        <form class="search" action="/product" method="POST">
+            <input type="text" class="input1" placeholder="花香四溢" name="name"/>
+            <input type="submit" value="搜索" class="searchbtn" id="searchbtn"/>
+        </form>
+
+    </div>
+    <!-- 搜索栏end -->
+
+    <!-- 商品 -->
+    <div class="goodsBox">
+        <!-- 筛选按钮 -->
+        <ul>
+            <li>
+                <select class="easyui-combobox" style="display: block; width:65px;" name="statu">
+                    <option style="display: block; width:50px" value="AL">推荐</option>
+                    <option style="width:50px" value="hot">热门</option>
+                </select>
+            </li>
+            <li>
+                <select class="easyui-combobox" style="display: block; width:65px;" name="statu">
+                    <option value="AL">推荐</option>
+                    <option value="AK">热门</option>
+                </select>
+            </li>
+            <li>
+                <select class="easyui-combobox" style="display: block; width:65px;" name="statu">
+                    <option value="AL">推荐</option>
+                    <option value="AK">热门</option>
+                </select>
+            </li>
+            <li>
+                <input type="">
+            </li>
+
+            <li>
+                价格：
+                <input type="text"> -
+                <input type="text">
+                <input type="button" value="确定">
+            </li>
+        </ul>
+        <!-- 筛选按钮end -->
+        <!-- 商品 -->
+        <div class="qhBox" id="myTabContent">
+            <div class="goods">
+                <div class="line">
+                    {{each goods}}
+                    <div class="good">
+                        <a class="pic" href="productxq?id={{$value._id}}">
+                            <img src={{$value.pic}} alt="">
+                        </a>
+                        <p class="gtitle" style="font-size: 16px;margin:10px 20px;">{{$value.name}}</p>
+                        <span class="price"
+                            style="color:red;font-size: 14px;margin-bottom: 20px;margin-left: 20px;">￥{{$value.price}}元</span>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+
+        <!-- 商品end -->
+        <div class="btnThree">
+            <input type="button" class="btnLeft" value="上一页" />
+            <div class="btnTile">1</div>
+            <input type="button" class="btnLeft" value="下一页" />
+        </div>
+    </div>
+    <!-- 商品end -->
+
+
+    <!-- 产品banner end -->
+
+    <!-- 底部 -->
+    <div class="footer">
+        <div class="fbox">
+            <ul>
+                <li>
+                    <a href="product">产品展示</a>
+                    <ul>
+                        <li><a href="product#mzjp">蜜中佳品</a></li>
+                        <li><a href="product#hxsy">花香四溢</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="news">新闻资讯</a>
+                    <ul>
+                        <li><a href="news#yjzx">业界资讯</a></li>
+                        <li><a href="news#gsdt">公司动态</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="company">公司概况</a>
+                    <ul>
+                        <li><a href="company#gsjj">公司简介</a></li>
+                        <li><a href="company#jytd">精英团队</a></li>
+                        <li><a href="company#jrwm">加入我们</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="info">
+                <div class="iTitle">
+                    重庆市蜜醇商贸有限公司
+                </div>
+                <p>重庆市蜜醇商贸有限公司</p>
+                <span>邮箱:2532487153qq.com</span>
+                <span>电话：17783444065 周一至周五：8：00~18：00</span>
+            </div>
+        </div>
+    </div>
+    <!-- 底部end -->
+    <script>
+        $("#myTab a").click(function(){
+            $("#myTab").children().removeClass("ctrShow");
+            this.addClass("ctrShow");
+        })
+
+        function getUrl() {
+            var url = location.href.split("#")[1];
+            return url;
+        }
+
+        function show() {
+            var id = getUrl();
+            if (id != null) {
+                $("#myTab a").removeClass("ctrshow show");
+                $("#" + id).addClass("ctrShow show");
+                $("#myTabContent").children().removeClass("show hide");
+                $("." + id).addClass("show");
+            }
+        }
+        show();
+        $("#searchbtn").click(function(){
+            $.ajax({
+                url:"",
+                data:                                                                                                                                           
+            })
+        })
+    </script>
+</body>
+
+</html>

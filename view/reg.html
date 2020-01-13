@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>蜜醇主页</title>
+    <meta name="会员注册" />
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/reg.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".login").click(function () {
+                window.location.href = "login";
+            })
+            $(".reg").click(function () {
+                window.location.href = "reg";
+            })
+            var zz = /^[\u4e00-\u9fa5\w]\w{3,15}$/; //验证账号正则
+            var zz1 = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/; //验证邮箱
+            var mm = /^[a-zA-Z0-9]{8,16}/; //密码正则
+            var flag = false;
+            if (zz.test($("#no")[0].value) || zz1.test($("#no")[0].value) && $("#no")[0].value != null) {
+                flag = true;
+                $.ajax({
+                    url: '/yz',
+                    type: 'post',
+                    data: {
+                        no: $("#no")[0].value
+                    },
+                    success: function (data) {
+                        console.log('名字存在');
+                    }
+                })
+            }
+
+            $(".fbutton").click(function () {
+                console.log($("#no")[0].value);
+                var pas1 = $(".pas").attr("value");
+                var pas2 = $(".pas1").attr("value");
+                if (pas1 == pas2 && flag && mm.test($(".pas")[0].value)) {
+                    $.ajax({
+                        url: "/doReg",
+                        type: 'post',
+                        data: {
+                            no: $("#no")[0].value,
+                            pas: $(".pas")[0].value
+                        },
+                        success: function (data) {
+                            console.log(data)
+                        }
+                    })
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <!-- 导航 -->
+    <div class="allNav">
+        <div class="nav">
+            <!-- 导航栏logo -->
+            <div class="nLeft">
+                <a href="index">
+                    <img src="../images/logo.jpg" alt="logo">
+                </a>
+            </div>
+            <!-- 导航栏logo end -->
+
+            <!-- 导航右边部分 -->
+            <div class="nRight">
+                <ul id="DH">
+                    <li>
+                        <a href="index">网站首页</a>
+                    </li>
+                    <li>
+                        <a href="product">产品展示</a>
+                        <ul>
+                            <li>
+                                <a href="productxq?flag=mzjp" id="mzjp">蜜中佳品</a>
+                            </li>
+                            <li>
+                                <a href="productxq?flag=hxsy">花香四溢</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="news">新闻资讯</a>
+                        <ul>
+                            <li>
+                                <a href="news?">
+                                    业界资讯
+                                </a>
+                            </li>
+                            <li>
+                                <a href="news?">
+                                    公司资讯
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="company">公司概况</a>
+                        <ul>
+                            <li>
+                                <a href="company?">公司简介</a>
+                            </li>
+                            <li>
+                                <a href="company?">精英团队</a>
+                            </li>
+                            <li>
+                                <a href="company?">加入我们</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="assist">蜜醇扶贫</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- 导航右边结束 -->
+
+            <!-- 登陆注册 -->
+            <div class="LR">
+                <input type="button" value="登陆" class="login">
+                <input type="button" value="注册" class="reg">
+            </div>
+            <!-- 登陆注册 -->
+        </div>
+    </div>
+    <!-- 导航end -->
+
+    <!-- 标题 -->
+    <div class="title">
+        会员中心
+    </div>
+    <!-- 内容 -->
+    <div class="table">
+        <!-- 表单标题 -->
+        <div class="tTitle">
+            会员注册
+        </div>
+        <!-- 表单标题end -->
+        <form action="/doReg" method="POST">
+            <span class="icon" style="display:flex;justify-content:center;align-items: center; height:34px;width:34px;float: left;background:rgba(239,239,239);"><img src="images/email.png" alt=""></span><input type="text" placeholder="邮箱" class="first" id="no" name="no">
+            <span class="icon" style="display:flex;justify-content:center;align-items: center; height:34px;width:34px;float: left;background:rgba(239,239,239);"><img src="images/suo.png" alt=""></span><input type="password" placeholder="密码" class="pas" name="pas" value="123123">
+            <span class="icon" style="display:flex;justify-content:center;align-items: center; height:34px;width:34px;float: left;background:rgba(239,239,239);"><img src="images/suo.png" alt=""></span><input type="password" placeholder="重复密码" class="pas1" name="pas1" value="123123">
+            <span class="icon" style="display:flex;justify-content:center;align-items: center; height:34px;width:34px;float: left;background:rgba(239,239,239);"><img src="images/dun.png" alt=""></span><input type="text" placeholder="验证码" class="yzm" name="yzm" value="123123">
+            <input type="submit" class="fbutton" value="立即注册">
+            <a href="login" style="color: rgba(90,166,237);">已有账号？</a>
+        </form>
+    </div>
+    <!-- 内容end -->
+    <!-- 标题end -->
+    <!-- 底部 -->
+    <div class="footer">
+        <div class="fbox">
+            <ul>
+                <li>
+                    <a href="product">产品展示</a>
+                    <ul>
+                        <li><a href="product?flag=mzjp">蜜中佳品</a></li>
+                        <li><a href="product?flag=hxsy">花香四溢</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="news">新闻资讯</a>
+                    <ul>
+                        <li><a href="news#yjzx">业界资讯</a></li>
+                        <li><a href="news#gsdt">公司动态</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="company">公司概况</a>
+                    <ul>
+                        <li><a href="company#gsjj">公司简介</a></li>
+                        <li><a href="company#jytd">精英团队</a></li>
+                        <li><a href="company#jrwm">加入我们</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="info">
+                <div class="iTitle">
+                    重庆市蜜醇商贸有限公司
+                </div>
+                <p>重庆市蜜醇商贸有限公司</p>
+                <span>邮箱:2532487153qq.com</span>
+                <span>电话：17783444065 周一至周五：8：00~18：00</span>
+            </div>
+        </div>
+    </div>
+    <!-- 底部end -->
+</body>
+
+</html>
