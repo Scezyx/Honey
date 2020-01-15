@@ -1,0 +1,8 @@
+{"_id":{"$oid":"5dda3d45cdc51631fcc9613f"},"name":"吴珊","occupation":"项目负责人,决策人","disc":"市场营销专业，有创业梦想的青年，在项目中是蜂蛹计划项目的负责人","pic":"images/ws.jpg"}
+{"_id":{"$oid":"5dda3db79b7e4231fcf90597"},"name":"杨丹","occupation":"策划","disc":"2019年社科奖第十届全国高校市场营销大赛方案单项一等奖","pic":"images/yd.jpg"}
+{"_id":{"$oid":"5dda3de09b7e4231fcf90598"},"name":"金丽","occupation":"运营","disc":"电子商务专业，熟练掌握电商运营工作","pic":"images/jl.jpg"}
+{"_id":{"$oid":"5dfdb5587a9f9c143868b332"},"name":"翁远平","occupation":"运营、策划","disc":"第十届社科奖全国一等奖","pic":"images/wyp.jpg"}
+{"_id":{"$oid":"5dfdb59f7a9f9c143868b333"},"name":"谭开勇","occupation":"硬件技术员","disc":"物联网专业优秀人才","pic":"images/tky.jpg"}
+{"_id":{"$oid":"5dfdb5e47a9f9c143868b334"},"name":"罗言","occupation":"运营","disc":"电子商务专业，精通PS技术","pic":"images/ly.jpg"}
+{"_id":{"$oid":"5dfdb6147a9f9c143868b335"},"name":"孙伟峰","occupation":"运营","disc":"数字媒体艺术专业,负责项目网站设计","pic":"images/swf.jpg"}
+{"_id":{"$oid":"5dfdb67f7a9f9c143868b336"},"name":"李吉洪","occupation":"开发人员","disc":"精通HTML语言，Java、Python等技术","pic":"images/ljh.jpg"}
